@@ -1,0 +1,15 @@
+<button class="button" (click)="getUsers()">Get Users</button>
+<br />
+<br />
+<table *ngIf="users.length">
+  <tr>
+    <th>Username</th>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td>{{ user.username }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+  </tr>
+</table>

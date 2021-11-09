@@ -1,0 +1,13 @@
+<button class="button" (click)="getPosts()">Get Posts</button>
+<br />
+<br />
+<table *ngIf="posts.length">
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+  </tr>
+  <tr *ngFor="let post of posts">
+    <td>{{ post.id }}</td>
+    <td>{{ post.title }}</td>
+  </tr>
+</table>
