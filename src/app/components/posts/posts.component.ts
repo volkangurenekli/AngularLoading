@@ -8,12 +8,19 @@ import { Post } from './../../models/post';
   styleUrls: ['./posts.component.css'],
 })
 export class PostsComponent implements OnInit {
-  ngOnInit(): void {}
-  constructor(private postsService: PostsService) {}
+  private sub: any;
   posts: Post[] = [];
 
+  constructor(private postsService: PostsService) {}
+
+  ngOnInit(): void {}
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
+
   getPosts() {
-    this.postsService.getPosts().subscribe((posts) => {
+    this.sub = this.postsService.getPosts().subscribe((posts) => {
       this.posts = posts.slice(0, 10);
     });
   }

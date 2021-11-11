@@ -12,8 +12,8 @@ export class LoadingComponent implements OnInit {
   loading: boolean = false;
 
   ngOnInit(): void {
-    this.loadingService.getLoading().subscribe({
-      next: (v: any) => (this.loading = v),
+    this.loadingService.getLoading().subscribe((v: boolean) => {
+      this.loading = v;
     });
   }
 }
